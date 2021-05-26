@@ -1,4 +1,5 @@
 import numpy as np
+import pandas as pd
 #import argparse
 #import matplotlib.pyplot as plt
 import cv2
@@ -115,7 +116,14 @@ if mode == "display":
 
     # start the webcam feed
     cap = cv2.VideoCapture(0)
-    while True:
+    ############################################
+
+    datos = 0
+    df = pd.DataFrame(columns=list('TE'))
+    df.to_csv('resultados.csv',index=False)
+    run=True
+    ############################################
+    while run:
         # Find haar cascade to draw bounding box around face
         ret, frame = cap.read()
         if not ret:
@@ -134,6 +142,25 @@ if mode == "display":
             final = datetime.datetime.now()
             tdelta = str(final - inicio)
             print(tdelta, emotion_dict[maxindex])
+            ##############################
+
+            info = np.array([tdelta,emotion_dict[maxindex]])
+            datos += 1
+            df2 = pd.DataFrame([[tdelta,emotion_dict[maxindex]]],columns=list('TE'))
+            df2.to_csv('resultados.csv',mode='a',header=False,index=False)
+
+            if datos == 10:
+                ########################################################
+
+                #######################################################
+                datos = 0
+                df = pd.DataFrame(columns=list('TE'))
+                df.to_csv('resultados.csv',index=False)
+
+
+
+
+            ##############################
 
         cv2.imshow('Video', cv2.resize(frame,(1600,960),interpolation = cv2.INTER_CUBIC))
         if cv2.waitKey(1) & 0xFF == ord('q'):
