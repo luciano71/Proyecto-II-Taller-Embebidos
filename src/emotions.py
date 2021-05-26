@@ -11,6 +11,10 @@ from tensorflow.keras.layers import MaxPooling2D
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 #import os
 import datetime
+import asyncio
+import websockets
+import pandas as pd
+
 #os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 inicio=datetime.datetime.now() #timepo inicial
 # command line argument
@@ -49,12 +53,10 @@ def plot_model_history(model_history):
 # Define data generators
 train_dir = 'data/train'
 val_dir = 'data/test'
-
 num_train = 28709
 num_val = 7178
 batch_size = 64
 num_epoch = 50
-
 train_datagen = ImageDataGenerator(rescale=1./255)
 val_datagen = ImageDataGenerator(rescale=1./255)
 '''''''''
@@ -65,7 +67,6 @@ train_generator = train_datagen.flow_from_directory(
         batch_size=batch_size,
         color_mode="grayscale",
         class_mode='categorical')
-
 validation_generator = val_datagen.flow_from_directory(
         val_dir,
         target_size=(48,48),
@@ -104,6 +105,14 @@ if mode == "train":
     plot_model_history(model_info)
     model.save_weights('model.h5')
 '''''''''
+
+
+async def message():
+    async with websockets.connect("ws://192.168.100.5:1234") as socket:
+        msg = JData
+        await socket.send(msg)
+        print(await socket.recv())
+
 # emotions will be displayed on your face from the webcam feed
 if mode == "display":
     model.load_weights('model.h5')
@@ -151,7 +160,9 @@ if mode == "display":
 
             if datos == 10:
                 ########################################################
-
+                Data = pd.read_csv('resultados.csv')
+                JData = Data.to_json()
+                asyncio.get_event_loop().run_until_complete(message())
                 #######################################################
                 datos = 0
                 df = pd.DataFrame(columns=list('TE'))
