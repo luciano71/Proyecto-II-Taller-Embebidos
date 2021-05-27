@@ -33,7 +33,7 @@ En este repo, se encuentran dos layers importantes para el desarrollo del proyec
 
 En general, esos son los archivos que se editaron para crear la imagen con Yocto Project, adem'as de llevar a cabo troubleshooting, documentacion, etc.
 
-#### Demostracion del funcionamiento del sistema.
+#### Video: Demostracion del funcionamiento del sistema.
 
 <a href="https://youtu.be/nq2r2GgUxNA
 " target="_blank"><img src="https://i.ytimg.com/vi/nq2r2GgUxNA/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAM6t-PVFwnIsbM9AggDi2H2xaWaA" 
