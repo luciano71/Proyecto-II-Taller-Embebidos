@@ -35,9 +35,9 @@ En general, esos son los archivos que se editaron para crear la imagen con Yocto
 
 #### Demostracion del funcionamiento del sistema.
 
-<a href="https://www.youtube.com/watch?v=BSME5ZzMs6c
-" target="_blank"><img src="https://i.ytimg.com/vi/BSME5ZzMs6c/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCNeFvyw_2cVjG4oIAyBv-IKU9B9A" 
-alt="Sistema Embebido para el reconocimiento y clasificacion de emociones faciales" width="240" height="180" border="10" /></a>
+<a href="https://youtu.be/nq2r2GgUxNA
+" target="_blank"><img src="https://i.ytimg.com/vi/nq2r2GgUxNA/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAM6t-PVFwnIsbM9AggDi2H2xaWaA" 
+alt="Sistema Embebido para el reconocimiento y clasificacion de emociones faciales" width="240" height="140" border="10" /></a>
 
 Estudiantes: Oscar Andres Arias C., Carlos Luis Andre B., Luciano Cendra V. y Emanuel Hernandez C.
 
